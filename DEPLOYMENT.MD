@@ -79,3 +79,19 @@ The plant identification feature uses Vercel AI Gateway which requires:
 - Visit the AI settings link in the error message
 - Add a credit card to unlock free AI credits
 - No charges will be made within the free tier limits
+
+### Error: "Internal Server Error" after deployment
+**This is the most common issue!**
+
+- **Cause:** Missing Supabase environment variables in Vercel
+- **Fix:**
+  1. Go to your Vercel project dashboard
+  2. Click **Settings** → **Environment Variables**
+  3. Add both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+  4. Make sure to add them for **Production**, **Preview**, AND **Development** environments
+  5. Click **Redeploy** in the Deployments tab
+  6. Check the **Runtime Logs** to verify the error is gone
+
+**To check if variables are set:**
+- Go to your deployment → Functions tab → View logs
+- Look for "[v0] Missing Supabase environment variables" error messages
